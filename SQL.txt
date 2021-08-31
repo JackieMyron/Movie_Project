@@ -1,0 +1,80 @@
+/*
+drop table Movies;
+drop table Theaters;
+*/
+
+create table Theaters  (
+	theaterID INT NOT NULL , 
+	theaterName VARCHAR(50) NOT NULL,
+        zipCode char(5),
+	constraint pkTheater primary key (theaterID));
+
+create table Movies  (
+	movieID INT NOT NULL,
+        title varchar(50) NOT NULL,
+        times varchar(5) NOT NULL,
+	duration int NOT NULL,
+        theaterID INT NOT NULL,
+        description varchar(500) NOT NULL,
+	constraint pkMovieID primary key (movieID), 
+	constraint fkTheaterID foreign key (theaterID) references Theaters(theaterID));
+
+insert into Theaters (theaterID, theaterName, zipCode) 
+VALUES (001, 'AMC', '75080'), (002, 'Angelica', '75081'), (003, 'Cinemark','75080'), (004, 'IMAX', '75081'), (005, 'Landmark', '75080'),
+        (006, 'Moviehouse & Eatery', '75081'), (007, 'Granada', '75080'), (008, 'Fun Movie Grill','75081'), (009, 'Alamo Drafthouse', '75080'), (010, 'B & B', '75081');
+
+insert into Movies (movieID, title, times, duration, theaterID, description) VALUES 
+	(001, 'Summer of Soul', '10AM', 150, 001, 'A feature documentary about the legendary 1969 Harlem Cultural Festival which celebrated African American music and culture, and promoted Black pride and unity.'), 
+	(002, 'In the Heights', '11AM', 130, 001, 'A film version of the Broadway musical in which Usnavi, a sympathetic New York bodega owner, saves every penny every day as he imagines and sings about a better life.'), 
+	(003, 'The White Tiger', '12PM', 100, 001, 'An ambitious Indian driver uses his wit and cunning to escape from poverty and rise to the top. An epic journey based on the New York Times bestseller.'), 
+	(004, 'A Quiet Place Part II', '1PM', 130, 001, 'Following the events at home, the Abbott family now face the terrors of the outside world. Forced to venture into the unknown, they realize the creatures that hunt by sound are not the only threats lurking beyond the sand path.'),
+	(005, 'Tinker, Tailor, Soldier, Spy', '5PM', 110, 001, 'In the bleak days of the Cold War, espionage veteran George Smiley is forced from semi-retirement to uncover a Soviet Agent within MI6.'), 
+	(006, 'No Sudden Move', '1PM', 125, 002, 'A group of criminals is brought together under mysterious circumstances and have to work together to uncover whats really going on when their simple job goes completely sideways.'), 
+	(007, 'F9', '3PM', 143, 002, 'Cipher enlists the help of Jakob, Doms younger brother to take revenge on Dom and his team.'), 
+	(008, 'Alvin and Chipmunks', '4PM', 110, 002, 'Three musical chipmunks are discovered by an aspiring songwriter who wants to use their amazing singing abilities to become famous.'),
+	(009, 'Summer time', '6PM', 140, 002, 'A modern love story, set during a summer on the Adriatic coast. An undeniable attraction unites Ale and Summer, two people from very different worlds.'),
+        (010, 'Jungle Cruise', '7PM', 127, 002, 'Join Dwayne Johnson and Emily Blunt for the adventure of a lifetime on Disneys Jungle Cruise, a rollicking thrill-ride.'),
+        (011, 'Wonder Woman 1981', '10AM', 110, 003, 'Diana must contend with a work colleague and businessman, whose desire for extreme wealth sends the world down a path of destruction, after an ancient artifact that grants wishes goes missing.'),
+        (012, 'Soul', '10AM', 110, 003, 'After landing the gig of a lifetime, a New York jazz pianist suddenly finds himself trapped in a strange land between Earth and the afterlife.'),
+        (013, 'News of the World', '11AM', 90, 003, 'A Civil War veteran agrees to deliver a girl, taken by the Kiowa people years ago, to her aunt and uncle, against her will. They travel hundreds of miles and face grave dangers as they search for a place that either can call home.'),
+        (014, 'The Little Things', '1PM', 115, 003, 'Kern County Deputy Sheriff Joe Deacon is sent to Los Angeles for what should have been a quick evidence-gathering assignment. Instead, he becomes embroiled in the search for a serial killer who is terrorizing the city.'),
+        (015, 'Cinderella', '3PM', 100, 003, 'A modern musical version of the classic fairy tale "Cinderella".'),
+        (016, 'Judas and the Block Messiah', '10AM', 105, 004, 'Offered a plea deal by the FBI, William O Neal infiltrates the Illinois chapter of the Black Panther Party to gather intelligence on Chairman Fred Hampton.'),
+        (017, 'Nomadland', '11AM', 80, 004, 'A woman in her sixties, after losing everything in the Great Recession, embarks on a journey through the American West, living as a van-dwelling modern-day nomad.'),
+        (018, 'Tom and Jerry', '1PM', 70, 004, 'A chaotic battle ensues between Jerry Mouse, who has taken refuge in the Royal Gate Hotel, and Tom Cat, who is hired to drive him away before the day of a big wedding arrives.'),
+        (019, 'Everybody’s Talking About Jamie', '3PM', 90, 004, 'Feature film adaptation of the musical about a teenager from Sheffield, England who wants to be a drag queen.'),
+        (020, 'Nobody', '5PM', 110, 004, 'A bystander who intervenes to help a woman being harassed by a group of men becomes the target of a vengeful drug lord.'),
+        (021, 'Raya and the Last Dragon', '11AM', 120, 005, 'In a realm known as Kumandra, a re-imagined Earth inhabited by an ancient civilization, a warrior named Raya is determined to find the last dragon.'),
+        (022, 'Coming 2 America', '1PM', 120, 005, 'The African monarch Akeem learns he has a long-lost son in the United States and must return to America to meet this unexpected heir and build a relationship with his son.'),
+        (023, 'Chaos Walking', '3PM', 110, 005, 'Two unlikely companions embark on a perilous adventure through the badlands of an unexplored planet as they try to escape a dangerous and disorienting reality where all thoughts are seen and heard by everyone.'),
+        (024, 'Jackass Forever', '5PM', 100, 005, 'After ten years, the Jackass crew is back for their final crusade.'),
+        (025, 'The Kings Man', '7PM', 90, 005, 'In the early years of the 20th century, the Kingsman agency is formed to stand against a cabal plotting a war to wipe out millions.'),
+        (026, 'The Many Saints of Newark', '10AM', 115, 006, 'A look at the formative years of New Jersey gangster, Tony Soprano.'),
+        (027, 'Morbius', '12AM', 100, 006, 'Biochemist Michael Morbius tries to cure himself of a rare blood disease, but he inadvertently infects himself with a form of vampirism instead.'),
+        (028, 'The Unbearable Weight of Massive Talent', '1PM', 115, 006, 'A cash-strapped Nicolas Cage agrees to make a paid appearance at a billionaire super fans birthday party, but is really an informant for the CIA since the billionaire fan is a drug kingpin and gets cast in a Tarantino movie.'),
+        (029, 'Fatherhood', '3PM', 115, 006, 'A father brings up his baby girl as a single dad after the unexpected death of his wife who died a day after their daughters birth.'),
+        (030, 'No Time to Die', '7PM', 115, 006, 'James Bond has left active service. His peace is short-lived when Felix Leiter, an old friend from the CIA, turns up asking for help, leading Bond onto the trail of a mysterious villain armed with dangerous new technology.'),
+        (031, 'Peter Rabbit 2: The Runaway', '10AM', 105, 007, 'Thomas and Bea are now married and living with Peter and his rabbit family. Bored of life in the garden, Peter goes to the big city, where he meets shady characters and ends up creating chaos for the whole family.'),
+        (032, 'Bob’s Burgers: The Movie', '12AM', 100, 007, 'Plot unknown. Feature film based on the animated TV series.'),
+        (033, 'Finch', '1PM', 90, 007, 'On a post-apocalyptic earth, a robot, built to protect the life of his creators beloved dog, learns about life, love, friendship and what it means to be human.'),
+        (034, 'Mortal Kombat', '3PM', 90, 007,'MMA fighter Cole Young seeks out Earths greatest champions in order to stand against the enemies of Outworld in a high stakes battle for the universe.'),
+        (035, 'Venom: Let There Be Carnage', '6PM', 90, 007,'Tom Hardy returns to the big screen as the lethal protector Venom, one of MARVELs greatest and most complex characters. Directed by Andy Serkis, the film also stars Michelle Williams,'),
+        (036, 'Last Night in Soho', '10AM', 105, 008, 'A young girl, passionate about fashion design, is mysteriously able to enter the 1960s where she encounters her idol, a dazzling wannabe singer. But 1960s London is not what it seems, and time seems to fall apart with shady consequences.'),
+        (037, 'Ron’s Gone Wrong', '12AM', 100, 008, 'The story of Barney, an awkward middle-schooler and Ron, his new walking, talking, digitally-connected device. Rons malfunctions set against the backdrop of the social media age launch them on a journey to learn about true friendship.'),
+        (038, 'The French Dispatch', '1PM', 105, 008, 'A love letter to journalists set in an outpost of an American newspaper in a fictional twentieth century French city that brings to life a collection of stories published in "The French Dispatch Magazine".'),
+        (039, 'Black Widow', '3PM', 105, 008, 'Natasha Romanoff confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises.'),
+        (040, 'Spirit Untamed', '7PM', 105, 008, 'Lucky Prescotts life is changed forever when she moves from her home in the city to a small frontier town and befriends a wild mustang named Spirit.'),
+        (041, 'Rumble', '10AM', 105, 009, 'In a world where monster wrestling is a global sport and monsters are superstar athletes, teenage Winnie seeks to follow in her fathers footsteps by coaching a loveable underdog monster into a champion.'),
+        (042, 'Free Guy', '11AM', 90, 009, 'A bank teller discovers that he s actually an NPC inside a brutal, open world video game.'),
+        (043, 'Godzilla vs. Kong', '1PM', 100, 009, 'The epic next chapter in the cinematic Monsterverse pits two of the greatest icons in motion picture history against one another - the fearsome Godzilla and the mighty Kong - with humanity caught in the balance.'),
+        (044, 'Spiral', '3PM', 100, 009, 'A criminal mastermind unleashes a twisted form of justice in Spiral, the terrifying new chapter from the book of Saw.'),
+        (045, 'Cruella', '5PM', 100, 009, 'A live-action prequel feature film following a young Cruella de Vil.'),
+        (046, 'Infinite', '10AM', 105, 010, 'A man discovers that his hallucinations are actually visions from past lives.'),
+        (047, 'Vivo', '12AM', 110, 010, 'Vivo, Sony Pictures Animation s first-ever musical adventure featuring all-new original songs from Lin-Manuel Miranda, will take audiences on an epic adventure to gorgeous and vibrant locations never before seen in animation.'),
+        (048, 'Samaritan', '1PM', 100, 010, 'A young boy learns that a superhero who was thought to have gone missing after an epic battle twenty years ago may in fact still be around.'),
+        (049, 'Luca', '4PM', 105, 010, 'On the Italian Riviera, an unlikely but strong friendship grows between a human being and a sea monster disguised as a human.'),
+        (050, 'In the Heights', '7PM', 90, 010, 'A film version of the Broadway musical in which US Navi, a sympathetic New York bodega owner, saves every penny every day as he imagines and sings about a better life.');
+
+
+
+
