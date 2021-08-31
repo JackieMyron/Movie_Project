@@ -1,4 +1,23 @@
 -----------
+Information
+-----------
+
+I used the IDE NetBeans to create and run this program
+It will also use GlassFish Server
+In order to run the code you will need to create a Database called MovieDB and then execute the SQL.txt file in order to 
+populate the Database.
+
+-----------
+Inputs
+-----------
+
+StartPage.xhtml
+The 5 digit zip codes to enter are 75080 & 75081
+
+PaymentScreen.xhtml
+This will take any 16 digit number
+
+-----------
 Web Pages
 -----------
 
